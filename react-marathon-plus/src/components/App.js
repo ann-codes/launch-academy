@@ -5,8 +5,11 @@ import SongCollection from "./SongCollection";
 const App = props => {
   let playlists = props.data.playlists;
 
-  // getter and setter for closure in the next playlist collection level
+  // getter and setter for function in the next playlist collection level
   const [playlistID, setPlaylistID] = useState(1);
+  // getter and setter on top level so playlist can reset songNameID state
+  // to null upon selection to fullfill Step11
+  const [songNameID, setSongNameID] = useState(null);
 
   // using the playlistID upon when the playlist is selected,
   // filter out the particular playlist, then use map to just map the songs array
@@ -23,9 +26,6 @@ const App = props => {
     pickedSongListIDs.includes(song.id)
   );
 
-  let minId = pickedSongList.map(song => song.id)[0];
-  const [songNameID, setSongNameID] = useState(null);
-
   // feed the pickedSongList into the SongCollection prop (instead of the
   // typical props.data.songs) b/c we want the specific filtered list
   return (
@@ -36,7 +36,6 @@ const App = props => {
         setPlaylistID={setPlaylistID}
         playlistID={playlistID}
         setSongNameID={setSongNameID}
-        minId={minId}
       />
       <SongCollection
         songs={pickedSongList}

@@ -1,18 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Song from "./Song";
 
 const SongCollection = props => {
-  // let minId = props.songs.map(song => song.id)[0]
+  // to solve for Step11, checks if songNameID state is null
+  // if yes, then set the highlight selection to the first in the list
+  if (!props.songNameID) {
+    props.setSongNameID(props.songs[0].id);
+  }
 
-
-  const setSongNameIDClosure = e => {
+  const highlightSong = e => {
     let targetID = Number(e.currentTarget.id);
     props.setSongNameID(targetID);
   };
 
   let mappedSongs = props.songs.map(song => {
     let selected;
-    if (props.songNameID === song.id ) {
+    if (props.songNameID === song.id) {
       selected = "selected";
     }
 
@@ -22,7 +25,7 @@ const SongCollection = props => {
         id={song.id}
         songs={song.name}
         artist={song.artist}
-        handleClick={setSongNameIDClosure}
+        handleClick={highlightSong}
         classNamer={selected}
       />
     );
