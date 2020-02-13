@@ -1,0 +1,32 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+img {
+  height: 20rem;
+  width: 70%;
+  margin-top: 2rem;
+}
+
+#wishlist-div {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.box-div {
+  border: 1px solid black;
+  margin-top: 2rem;
+}
+
+ul {
+  list-style: none;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: aliceblue;
+}
+
+.done {
+  text-decoration: line-through;
+}
