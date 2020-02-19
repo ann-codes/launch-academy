@@ -36,12 +36,7 @@ app.get("/", (req, res) => {
   res.send("Hello from the backend");
 });
 
-app.get("/launchers", (req, res) => {
-  res.send("Launcher");
-});
-
 // required for step three
-
 const getLaunchers = () => {
   const launcherPath = path.join(__dirname, "../launchers.json");
   return JSON.parse(fs.readFileSync(launcherPath));
@@ -87,6 +82,20 @@ app.post("/api/v1/questions", (req, res) => {
   } else {
     res.status(422).json({ name: ["Fields can't be blank"] });
   }
+});
+
+// set to wildcard so that upon refresh after going through react
+// router links that it remains static on the page ******
+// need to make sure that the dirnames are pointing to the correct file
+// works if there is now hbs templates and uses pure /public
+app.get("*", (req, res) => {
+  const index = fs.readFileSync(
+    path.join(__dirname, "../public/index.html").toString()
+  );
+  res
+    .status(200)
+    .type("text/html")
+    .send(index);
 });
 
 app.listen(3000, "0.0.0.0", () => {
