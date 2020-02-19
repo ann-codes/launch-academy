@@ -1,0 +1,74 @@
+@import "stylesheets/Colors";
+@import "stylesheets/App";
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins|Raleway&display=swap");
+
+body {
+  background-color: $light-blue;
+  font-family: "Raleway", sans-serif;
+}
+
+h1,
+h2 {
+  color: $blue;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  text-align: center;
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 30px;
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  //   border: 1px solid black;
+  //   background-color: white;
+}
+
+.faq-valign-middle > * {
+  vertical-align: middle;
+}
+
+.faq-question-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: help;
+}
+
+.faq-green {
+  color: $green;
+}
+
+.faq-hide {
+  display: none;
+}
+
+.faq-show {
+  display: inline;
+}
+//// using font awesome's class
+.fas {
+  stroke-width: 2px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: rgb(46, 46, 46);
+  font-size: 2rem;
+  text-shadow: 2px 2px gray;
+  cursor: help;
+}
+
+.fas:hover {
+  color: $green;
+}
